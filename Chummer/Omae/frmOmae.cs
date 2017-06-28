@@ -1,3 +1,21 @@
+/*  This file is part of Chummer5a.
+ *
+ *  Chummer5a is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Chummer5a is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Chummer5a.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  You can obtain the full source code for Chummer5a at
+ *  https://github.com/chummer5a/chummer5a
+ */
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,14 +40,14 @@ namespace Chummer
 	public partial class frmOmae : Form
 	{
 		// Error message constants.
-		private readonly string NO_CONNECTION_MESSAGE = "";
-		private readonly string NO_CONNECTION_TITLE = "";
+		private readonly string NO_CONNECTION_MESSAGE = string.Empty;
+		private readonly string NO_CONNECTION_TITLE = string.Empty;
 
 		private readonly OmaeHelper _objOmaeHelper = new OmaeHelper();
 		private List<ListItem> _lstCharacterTypes = new List<ListItem>();
 
 		private bool _blnLoggedIn = false;
-		private string _strUserName = "";
+		private string _strUserName = string.Empty;
 		private readonly frmMain _frmMain;
 		private OmaeMode _objMode = OmaeMode.Character;
 
@@ -127,14 +145,14 @@ namespace Chummer
 		{
 			string strReturn = strValue;
 			strReturn = strReturn.Replace(" ", "_");
-			strReturn = strReturn.Replace("\\", "");
-			strReturn = strReturn.Replace("/", "");
-			strReturn = strReturn.Replace(":", "");
-			strReturn = strReturn.Replace("*", "");
-			strReturn = strReturn.Replace("?", "");
-			strReturn = strReturn.Replace("<", "");
-			strReturn = strReturn.Replace(">", "");
-			strReturn = strReturn.Replace("|", "");
+			strReturn = strReturn.Replace("\\", string.Empty);
+			strReturn = strReturn.Replace("/", string.Empty);
+			strReturn = strReturn.Replace(":", string.Empty);
+			strReturn = strReturn.Replace("*", string.Empty);
+			strReturn = strReturn.Replace("?", string.Empty);
+			strReturn = strReturn.Replace("<", string.Empty);
+			strReturn = strReturn.Replace(">", string.Empty);
+			strReturn = strReturn.Replace("|", string.Empty);
 			return strReturn;
 		}
 
@@ -256,12 +274,12 @@ namespace Chummer
 					string strSavePath = Path.Combine(Application.StartupPath, "saves");
 					if (!Directory.Exists(strSavePath))
 						Directory.CreateDirectory(strSavePath);
-					if (!Directory.Exists(Path.Combine(strSavePath, "omae")))
-						Directory.CreateDirectory(Path.Combine(strSavePath, "omae"));
+					string omaeDirectoryPath = Path.Combine(strSavePath, "omae");
+                    if (!Directory.Exists(omaeDirectoryPath))
+						Directory.CreateDirectory(omaeDirectoryPath);
 
 					// See if there is already a file with the character's name in the Downloads directory.
-					string strFullPath = Path.Combine(strSavePath, "omae");
-					strFullPath = Path.Combine(strFullPath, strFileName);
+					string strFullPath = Path.Combine(omaeDirectoryPath, strFileName);
 					if (File.Exists(strFullPath))
 					{
 						if (MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_FileExists").Replace("{0}", strFileName), LanguageManager.Instance.GetString("MessageTitle_Omae_FileExists"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -282,11 +300,9 @@ namespace Chummer
 
 						// Decompress the byte array and write it to a file.
 						bytFile = _objOmaeHelper.Decompress(bytFile);
-						string strWritePath = Path.Combine(strSavePath, "omae");
-						strWritePath = Path.Combine(strWritePath, strFileName);
-						File.WriteAllBytes(strWritePath, bytFile);
+						File.WriteAllBytes(strFullPath, bytFile);
 						if (MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_CharacterDownloaded"), LanguageManager.Instance.GetString("MessageTitle_Omae_CharacterDownloaded"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-							_frmMain.LoadCharacter(strWritePath);
+							_frmMain.LoadCharacter(strFullPath);
 					}
 					catch (EndpointNotFoundException)
 					{
@@ -353,9 +369,9 @@ namespace Chummer
 			else if (_objMode == OmaeMode.Sheets)
 			{
 				// If the Omae sheets directory does not yet exist, create it.
-				string strSheetsPath = Path.Combine(Application.StartupPath, "sheets");
-				if (!Directory.Exists(Path.Combine(strSheetsPath, "omae")))
-					Directory.CreateDirectory(Path.Combine(strSheetsPath, "omae"));
+				string strSheetsPath = Path.Combine(Application.StartupPath, "sheets", "omae");
+				if (!Directory.Exists(strSheetsPath))
+					Directory.CreateDirectory(strSheetsPath);
 
 				try
 				{
@@ -469,7 +485,7 @@ namespace Chummer
 		{
 			_strUserName = GlobalOptions.Instance.OmaeUserName;
 			txtUserName.Text = _strUserName;
-			if (txtUserName.Text != "")
+			if (!string.IsNullOrEmpty(txtUserName.Text))
 				txtPassword.Focus();
 			else
 				txtUserName.Focus();
@@ -502,12 +518,12 @@ namespace Chummer
 		private void cmdRegister_Click(object sender, EventArgs e)
 		{
 			// Make sure User Name and Password are provided.
-			if (txtUserName.Text.Trim() == "")
+			if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_ChooseUsername"), LanguageManager.Instance.GetString("MessageTitle_Omae_ChooseUsername"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			if (txtPassword.Text.Trim() == "")
+			if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_ChoosePassword"), LanguageManager.Instance.GetString("MessageTitle_Omae_ChoosePassword"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
@@ -541,12 +557,12 @@ namespace Chummer
 		private void cmdLogin_Click(object sender, EventArgs e)
 		{
 			// Make sure User Name and Password are provided.
-			if (txtUserName.Text.Trim() == "")
+			if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_EnterUsername"), LanguageManager.Instance.GetString("MessageTitle_Omae_ChooseUsername"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			if (txtPassword.Text.Trim() == "")
+			if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_Omae_EnterPassword"), LanguageManager.Instance.GetString("MessageTitle_Omae_ChoosePassword"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
@@ -578,8 +594,8 @@ namespace Chummer
 					}
 					else
 					{
-						GlobalOptions.Instance.OmaePassword = "";
-						objRegistry.SetValue("omaepassword", "");
+						GlobalOptions.Instance.OmaePassword = string.Empty;
+						objRegistry.SetValue("omaepassword", string.Empty);
 						GlobalOptions.Instance.OmaeAutoLogin = chkAutoLogin.Checked;
 						objRegistry.SetValue("omaeautologin", chkAutoLogin.Checked.ToString());
 					}
@@ -724,7 +740,7 @@ namespace Chummer
 					MemoryStream objStream = new MemoryStream();
 					XmlTextWriter objWriter = new XmlTextWriter(objStream, Encoding.UTF8);
 
-					objService.FetchDataFiles(Convert.ToInt32(cboSortOrder.SelectedValue), "", txtFilterUser.Text).WriteTo(objWriter);
+					objService.FetchDataFiles(Convert.ToInt32(cboSortOrder.SelectedValue), string.Empty, txtFilterUser.Text).WriteTo(objWriter);
 					// Flush the output.
 					objWriter.Flush();
 					objStream.Flush();
@@ -836,12 +852,12 @@ namespace Chummer
 		private void cmdFilterClear_Click(object sender, EventArgs e)
 		{
 			// Clear the contents of the Filter controls.
-			cboFilterMetatype.Text = "";
-			cboFilterMetavariant.Text = "";
-			txtFilterUser.Text = "";
-			cboFilterQuality1.Text = "";
-			cboFilterQuality2.Text = "";
-			cboFilterQuality3.Text = "";
+			cboFilterMetatype.Text = string.Empty;
+			cboFilterMetavariant.Text = string.Empty;
+			txtFilterUser.Text = string.Empty;
+			cboFilterQuality1.Text = string.Empty;
+			cboFilterQuality2.Text = string.Empty;
+			cboFilterQuality3.Text = string.Empty;
 			cboFilterMode.Text = "Any Mode";
 		}
 
@@ -879,7 +895,7 @@ namespace Chummer
 
 		private void frmOmae_Resize(object sender, EventArgs e)
 		{
-			this.Width = 702;
+			Width = 702;
 		}
 
 		private void cmdUploadLanguage_Click(object sender, EventArgs e)

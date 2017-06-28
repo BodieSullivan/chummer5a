@@ -1,3 +1,21 @@
+/*  This file is part of Chummer5a.
+ *
+ *  Chummer5a is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Chummer5a is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Chummer5a.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  You can obtain the full source code for Chummer5a at
+ *  https://github.com/chummer5a/chummer5a
+ */
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -8,7 +26,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Chummer")]
 [assembly: AssemblyDescription("Character generator for Shadowrun 5th Edition")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Chummer for 4th edition by Keith Rudolph.\n\rChummer5 update by Adam Schmidt: srchummer5@gmail.com\n\rChummer5a update by Anonymous fa/tg/uy: chummer5isalive@gmail.com")]
+[assembly: AssemblyCompany("Chummer for 4th edition by Keith Rudolph.\n\r" +
+                           "Chummer5 update by Adam Schmidt: srchummer5@gmail.com\n\r" +
+                           "Chummer5a update by Anonymous fa/tg/uy: chummer5isalive@gmail.com\n\r" +
+                           "Additional 5a updates by Johannes Elgaard: joha4270@gmail.com\n\r" +
+                           "Data files for Run Faster & Data Tails by reddit/u/Iridios")]
 [assembly: AssemblyProduct("Chummer")]
 [assembly: AssemblyCopyright("Copyright © Keith Rudolph 2013")]
 [assembly: AssemblyTrademark("")]
@@ -28,9 +50,5 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.161")]
-[assembly: AssemblyFileVersion("0.5.161")]
+[assembly: AssemblyVersion("5.193.0")]
+[assembly: AssemblyFileVersion("5.193.0")]

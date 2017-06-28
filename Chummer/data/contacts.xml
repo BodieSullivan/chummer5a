@@ -1,6 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file is part of Chummer5a.
+
+    Chummer5a is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Chummer5a is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Chummer5a.  If not, see <http://www.gnu.org/licenses/>.
+
+    You can obtain the full source code for Chummer5a at
+    https://github.com/chummer5a/chummer5a
+-->
 <chummer>
-  <version>-400</version>
+  <version>0</version>
   <contacts>
     <contact>Amerindian Tribesperson</contact>
     <contact>Antiquities and Oddities Dealer</contact>
@@ -10,6 +28,7 @@
     <contact>Blogger</contact>
     <contact>Bodyguard</contact>
     <contact>Bookie</contact>
+	<contact>Cleaner</contact>
     <contact>Club Hopper</contact>
     <contact>Club Owner</contact>
     <contact>Company Man</contact>
@@ -34,12 +53,16 @@
     <contact>Hermetic Academic</contact>
     <contact>High Stakes Negotiator</contact>
     <contact>ID Manufacturer</contact>
+	<contact>Infobroker</contact>
     <contact>Janitor</contact>
     <contact>Mafia Consiglieri</contact>
     <contact>Mechanic</contact>
+	<contact>Mercenary Alchemist</contact>
     <contact>Mr. Johnson</contact>
     <contact>Nomad</contact>
     <contact>Ork Nation Organizer</contact>
+	<contact>Parabotanist</contact>
+	<contact>Parabiologist</contact>
     <contact>Paramed</contact>
     <contact>Paramed Shaman</contact>
     <contact>Parasecurity Expert</contact>

@@ -1,3 +1,21 @@
+/*  This file is part of Chummer5a.
+ *
+ *  Chummer5a is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Chummer5a is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Chummer5a.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  You can obtain the full source code for Chummer5a at
+ *  https://github.com/chummer5a/chummer5a
+ */
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -15,12 +33,11 @@ namespace Chummer
 			LanguageManager.Instance.Load(GlobalOptions.Instance.Language, this);
 
 			// Determine the DateTime format and use that to display the date field (removing seconds since they're not important).
-			DateTimeFormatInfo objDateTimeInfo = CultureInfo.CurrentCulture.DateTimeFormat;
+			DateTimeFormatInfo objDateTimeInfo = GlobalOptions.CultureInfo.DateTimeFormat;
 			string strDatePattern = objDateTimeInfo.FullDateTimePattern.Replace(":ss", string.Empty);
 			if (!GlobalOptions.Instance.DatesIncludeTime)
 				strDatePattern = objDateTimeInfo.LongDatePattern;
 			datDate.CustomFormat = strDatePattern;
-
 			datDate.Value = DateTime.Now;
 
 			txtDescription.Text = LanguageManager.Instance.GetString("String_ExpenseDefault");
@@ -28,12 +45,19 @@ namespace Chummer
 
 		private void cmdOK_Click(object sender, EventArgs e)
 		{
-			this.DialogResult = DialogResult.OK;
+		    if (KarmaNuyenExchange && _objMode == ExpenseType.Nuyen && nudAmount.Value % 2000 != 0)
+		    {
+                MessageBox.Show(LanguageManager.Instance.GetString("Message_KarmaNuyenExchange"), LanguageManager.Instance.GetString("MessageTitle_KarmaNuyenExchange"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+		    else
+            {
+                DialogResult = DialogResult.OK;
+            }
 		}
 
 		private void cmdCancel_Click(object sender, EventArgs e)
 		{
-			this.DialogResult = DialogResult.Cancel;
+			DialogResult = DialogResult.Cancel;
 		}
 		#endregion
 
@@ -63,7 +87,7 @@ namespace Chummer
 		/// <summary>
 		/// Reason for the Karma change.
 		/// </summary>
-		public string strReason
+		public string Reason
 		{
 			get
 			{
@@ -115,7 +139,7 @@ namespace Chummer
 				if (value == ExpenseType.Nuyen)
 				{
 					lblKarma.Text = LanguageManager.Instance.GetString("Label_Expense_NuyenAmount");
-					this.Text = LanguageManager.Instance.GetString("Title_Expense_Nuyen");
+					Text = LanguageManager.Instance.GetString("Title_Expense_Nuyen");
 					chkRefund.Text = LanguageManager.Instance.GetString("Checkbox_Expense_RefundNuyen");
 					nudPercent.Visible = true;
 					lblPercent.Visible = true;
@@ -123,20 +147,24 @@ namespace Chummer
 				else
 				{
 					lblKarma.Text = LanguageManager.Instance.GetString("Label_Expense_KarmaAmount");
-					this.Text = LanguageManager.Instance.GetString("Title_Expense_Karma");
+					Text = LanguageManager.Instance.GetString("Title_Expense_Karma");
 					nudPercent.Visible = false;
 					lblPercent.Visible = false;
 				}
 				_objMode = value;
 			}
 		}
-		#endregion
 
-		#region Methods
-		/// <summary>
-		/// Lock fields on the Form so that only the Date and Reason fields are editable.
-		/// </summary>
-		public void LockFields(bool blnEditAmount = false)
+	    public bool KarmaNuyenExchange { get; set; }
+        public string KarmaNuyenExchangeString { get; internal set; }
+
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Lock fields on the Form so that only the Date and Reason fields are editable.
+        /// </summary>
+        public void LockFields(bool blnEditAmount = false)
 		{
 			nudAmount.Enabled = blnEditAmount;
 			nudPercent.Enabled = false;
@@ -145,6 +173,29 @@ namespace Chummer
 			if (blnEditAmount && nudAmount.Minimum < 0)
 				nudAmount.Minimum = nudAmount.Maximum * -1;
 		}
-		#endregion
-	}
+        #endregion
+
+        private void chkKarmaNuyenExchange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkKarmaNuyenExchange.Checked)
+            {
+                txtDescription.Text = KarmaNuyenExchangeString;
+            }
+            if (chkKarmaNuyenExchange.Checked && _objMode == ExpenseType.Nuyen)
+            {
+                nudAmount.Increment = 2000;
+                nudAmount.Value = 2000;
+            }
+            else
+            {
+                nudAmount.Increment = 1;
+            }
+            KarmaNuyenExchange = chkKarmaNuyenExchange.Checked;
+        }
+
+        private void frmExpanse_Load(object sender, EventArgs e)
+        {
+            chkKarmaNuyenExchange.Text = KarmaNuyenExchangeString;
+        }
+    }
 }

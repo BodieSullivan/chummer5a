@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,10 +10,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Chummer</RootNamespace>
     <AssemblyName>Chummer5</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TransformOnBuild>True</TransformOnBuild>
     <PublishUrl>M:\Chummer 5\</PublishUrl>
     <Install>false</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,32 +27,40 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+    <TransformOnBuild>True</TransformOnBuild>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>default</LangVersion>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+    <TransformOnBuild>True</TransformOnBuild>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <DebugSymbols>true</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -69,23 +79,54 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.8.1\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.1-beta1\lib\net45\HtmlRenderer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlRenderer.PdfSharp, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.PdfSharp.1.5.1-beta1\lib\net45\HtmlRenderer.PdfSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlRenderer.WinForms, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.WinForms.1.5.1-beta1\lib\net45\HtmlRenderer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.Charting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,35 +137,121 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsCommon.cs" />
-    <Compile Include="clsEquipment.cs" />
-    <Compile Include="clsCharacter.cs" />
-    <Compile Include="clsImprovement.cs" />
-    <Compile Include="clsExpenses.cs" />
-    <Compile Include="clsLanguageManager.cs" />
-    <Compile Include="clsListItems.cs" />
-    <Compile Include="clsOmaeHelper.cs" />
-    <Compile Include="clsOptions.cs" />
-    <Compile Include="clsUnique.cs" />
-    <Compile Include="clsXmlManager.cs" />
-    <Compile Include="ConditionMonitorUserControl.cs">
+    <Compile Include="Backend\Equipment\WeaponMount.cs" />
+    <Compile Include="Backend\Shared Methods\CharacterShared.cs" />
+    <Compile Include="Backend\Datastructures\ReverseTree.cs" />
+    <Compile Include="Backend\Datastructures\TranslatedField.cs" />
+    <Compile Include="Backend\Debugging\CrashHandler.cs" />
+    <Compile Include="Backend\Debugging\ExceptionHeatMap.cs" />
+    <Compile Include="Backend\Equipment\Armor.cs" />
+    <Compile Include="Backend\Equipment\CapacityStyle.cs" />
+    <Compile Include="Backend\Equipment\Commlink.cs" />
+    <Compile Include="Backend\Equipment\Cyberware.cs" />
+    <Compile Include="Backend\Equipment\Equipment.cs" />
+    <Compile Include="Backend\Equipment\Gear.cs" />
+    <Compile Include="Backend\Equipment\Grade.cs" />
+    <Compile Include="Backend\Equipment\GradeList.cs" />
+    <Compile Include="Backend\Equipment\Lifestyle.cs" />
+    <Compile Include="Backend\Equipment\LifestyleQuality.cs" />
+    <Compile Include="Backend\Equipment\LifestyleType.cs" />
+    <Compile Include="Backend\Equipment\Vehicle.cs" />
+    <Compile Include="Backend\Equipment\VehicleMod.cs" />
+    <Compile Include="Backend\Equipment\Weapon.cs" />
+    <Compile Include="Backend\Equipment\WeaponAccessory.cs" />
+    <Compile Include="Backend\Extensions\BindingListExtensions.cs" />
+    <Compile Include="Backend\Extensions\BitArrayExtensions.cs" />
+    <Compile Include="Backend\Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Backend\Debugging\PerformanceDebugUtils.cs" />
+    <Compile Include="Backend\Shared Methods\SelectionShared.cs" />
+    <Compile Include="Backend\Powers\PowerSorters.cs" />
+    <Compile Include="Backend\Skills\ExoticSkill.cs" />
+    <Compile Include="Backend\Skills\KnowledgeSkill.cs" />
+    <Compile Include="Backend\Skills\Skill.core.cs" />
+    <Compile Include="Backend\Skills\Skill.cs" />
+    <Compile Include="Backend\Skills\SkillExtensions.cs" />
+    <Compile Include="Backend\Skills\SkillGroup.cs" />
+    <Compile Include="Backend\Skills\SkillSorters.cs" />
+    <Compile Include="Backend\Skills\SkillsSection.cs" />
+    <Compile Include="Character Creation\frmSelectLifeModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Character Creation\frmSelectLifeModule.Designer.cs">
+      <DependentUpon>frmSelectLifeModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AddImprovementCollection.cs">
+      <DependentUpon>clsImprovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CharacterOptions.cs" />
+    <Compile Include="Classes\clsCommon.cs" />
+    <Compile Include="Classes\clsCrashreport.cs" />
+    <Compile Include="Backend\Equipment\ArmorMod.cs" />
+    <Compile Include="Classes\clsCharacter.cs" />
+    <Compile Include="Classes\clsHoverDisplayCordinator.cs" />
+    <Compile Include="Classes\clsImprovement.cs" />
+    <Compile Include="Classes\clsExpenses.cs" />
+    <Compile Include="Classes\clsLanguageManager.cs" />
+    <Compile Include="Classes\clsListItems.cs" />
+    <Compile Include="Classes\clsLog.cs" />
+    <Compile Include="Classes\clsOmaeHelper.cs" />
+    <Compile Include="Classes\clsOptions.cs" />
+    <Compile Include="Classes\clsParameterAttribute.cs" />
+    <Compile Include="Classes\clsStoryBuilder.cs" />
+    <Compile Include="Classes\clsTimekeeper.cs" />
+    <Compile Include="Classes\clsUnique.cs" />
+    <Compile Include="Classes\clsUtils.cs" />
+    <Compile Include="Classes\clsXmlExtensions.cs" />
+    <Compile Include="Classes\clsXmlManager.cs" />
+    <Compile Include="Backend\Skills\SkillSpecialization.cs" />
+    <Compile Include="Backend\Powers\Power.cs" />
+    <Compile Include="Classes\RemoveImprovementCollection.cs">
+      <DependentUpon>clsImprovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCharacterRoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCharacterRoster.Designer.cs">
+      <DependentUpon>frmCharacterRoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreateWeaponMount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateWeaponMount.Designer.cs">
+      <DependentUpon>frmCreateWeaponMount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helpers\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="helpers\Guid.cs" />
+    <Compile Include="helpers\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="helpers\NumericUpDownEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\INamedItemWithGuid.cs" />
+    <Compile Include="Properties\Contributors.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contributors.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConditionMonitorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConditionMonitorUserControl.Designer.cs">
+    <Compile Include="Controls\ConditionMonitorUserControl.Designer.cs">
       <DependentUpon>ConditionMonitorUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContactControl.cs">
+    <Compile Include="Controls\ContactControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ContactControl.Designer.cs">
+    <Compile Include="Controls\ContactControl.Designer.cs">
       <DependentUpon>ContactControl.cs</DependentUpon>
     </Compile>
     <Compile Include="controllers\clsDashboardController.cs" />
     <Compile Include="controllers\clsMainController.cs" />
-    <Compile Include="DiceRollerControl.cs">
+    <Compile Include="Controls\DiceRollerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DiceRollerControl.Designer.cs">
+    <Compile Include="Controls\DiceRollerControl.Designer.cs">
       <DependentUpon>DiceRollerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddToken.cs">
@@ -175,16 +302,28 @@
     <Compile Include="frmGMDashboard.Designer.cs">
       <DependentUpon>frmGMDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectLifestyleAdvanced.cs">
+    <Compile Include="helpers\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="helpers\TreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectOptionalPower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectLifestyleAdvanced.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectOptionalPower.Designer.cs">
+      <DependentUpon>frmSelectOptionalPower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectLifestyleAdvanced.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectLifestyleAdvanced.Designer.cs">
       <DependentUpon>frmSelectLifestyleAdvanced.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectLifestyleQuality.cs">
+    <Compile Include="Selection Forms\frmSelectLifestyleQuality.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectLifestyleQuality.designer.cs">
+    <Compile Include="Selection Forms\frmSelectLifestyleQuality.Designer.cs">
       <DependentUpon>frmSelectLifestyleQuality.cs</DependentUpon>
     </Compile>
     <Compile Include="lang\language.Designer.cs">
@@ -192,6 +331,61 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>language.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Selection Forms\frmSelectAIProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectAIProgram.Designer.cs">
+      <DependentUpon>frmSelectAIProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectSkillSpec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Selection Forms\frmSelectSkillSpec.Designer.cs">
+      <DependentUpon>frmSelectSkillSpec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Attributes\AttributeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Attributes\AttributeControl.Designer.cs">
+      <DependentUpon>AttributeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Skills\KnowledgeSkillControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Skills\KnowledgeSkillControl.Designer.cs">
+      <DependentUpon>KnowledgeSkillControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Skills\SkillControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Skills\SkillControl2.Designer.cs">
+      <DependentUpon>SkillControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Skills\SkillGroupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Skills\SkillGroupControl.Designer.cs">
+      <DependentUpon>SkillGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Shared\BindingListDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Shared\BindingListDisplay.Designer.cs">
+      <DependentUpon>BindingListDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Powers\PowersTabUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Powers\PowersTabUserControl.Designer.cs">
+      <DependentUpon>PowersTabUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Skills\SkillsTabUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Skills\SkillsTabUserControl.Designer.cs">
+      <DependentUpon>SkillsTabUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\frmDiceHits.cs">
       <SubType>Form</SubType>
@@ -319,184 +513,184 @@
     <Compile Include="frmReload.Designer.cs">
       <DependentUpon>frmReload.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectLifestyle.cs">
+    <Compile Include="Selection Forms\frmSelectLifestyle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectLifestyle.designer.cs">
+    <Compile Include="Selection Forms\frmSelectLifestyle.Designer.cs">
       <DependentUpon>frmSelectLifestyle.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectArmorMod.cs">
+    <Compile Include="Selection Forms\frmSelectArmorMod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectArmorMod.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectArmorMod.Designer.cs">
       <DependentUpon>frmSelectArmorMod.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectArt.cs">
+    <Compile Include="Selection Forms\frmSelectArt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectArt.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectArt.Designer.cs">
       <DependentUpon>frmSelectArt.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectCalendarStart.cs">
+    <Compile Include="Selection Forms\frmSelectCalendarStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectCalendarStart.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectCalendarStart.Designer.cs">
       <DependentUpon>frmSelectCalendarStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectContactConnection.cs">
+    <Compile Include="Selection Forms\frmSelectContactConnection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectContactConnection.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectContactConnection.Designer.cs">
       <DependentUpon>frmSelectContactConnection.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectCritterPower.cs">
+    <Compile Include="Selection Forms\frmSelectCritterPower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectCritterPower.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectCritterPower.Designer.cs">
       <DependentUpon>frmSelectCritterPower.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectCyberwareSuite.cs">
+    <Compile Include="Selection Forms\frmSelectCyberwareSuite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectCyberwareSuite.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectCyberwareSuite.Designer.cs">
       <DependentUpon>frmSelectCyberwareSuite.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectExoticSkill.cs">
+    <Compile Include="Selection Forms\frmSelectExoticSkill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectExoticSkill.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectExoticSkill.Designer.cs">
       <DependentUpon>frmSelectExoticSkill.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectGear.cs">
+    <Compile Include="Selection Forms\frmSelectGear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectGear.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectGear.Designer.cs">
       <DependentUpon>frmSelectGear.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectItem.cs">
+    <Compile Include="Selection Forms\frmSelectItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectItem.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectItem.Designer.cs">
       <DependentUpon>frmSelectItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectLimit.cs">
+    <Compile Include="Selection Forms\frmSelectLimit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectLimit.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectLimit.Designer.cs">
       <DependentUpon>frmSelectLimit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectLimitModifier.cs">
+    <Compile Include="Selection Forms\frmSelectLimitModifier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectLimitModifier.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectLimitModifier.Designer.cs">
       <DependentUpon>frmSelectLimitModifier.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMartialArt.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMartialArt.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArt.Designer.cs">
       <DependentUpon>frmSelectMartialArt.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMartialArtAdvantage.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArtAdvantage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMartialArtAdvantage.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArtAdvantage.Designer.cs">
       <DependentUpon>frmSelectMartialArtAdvantage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMartialArtManeuver.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArtManeuver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMartialArtManeuver.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectMartialArtManeuver.Designer.cs">
       <DependentUpon>frmSelectMartialArtManeuver.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMentorSpirit.cs">
+    <Compile Include="Selection Forms\frmSelectMentorSpirit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMentorSpirit.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectMentorSpirit.Designer.cs">
       <DependentUpon>frmSelectMentorSpirit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMetamagic.cs">
+    <Compile Include="Selection Forms\frmSelectMetamagic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMetamagic.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectMetamagic.Designer.cs">
       <DependentUpon>frmSelectMetamagic.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectNexus.cs">
+    <Compile Include="Selection Forms\frmSelectNexus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectNexus.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectNexus.Designer.cs">
       <DependentUpon>frmSelectNexus.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectNumber.cs">
+    <Compile Include="Selection Forms\frmSelectNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectNumber.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectNumber.Designer.cs">
       <DependentUpon>frmSelectNumber.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectPACKSKit.cs">
+    <Compile Include="Selection Forms\frmSelectPACKSKit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectPACKSKit.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectPACKSKit.Designer.cs">
       <DependentUpon>frmSelectPACKSKit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectProgramOption.cs">
+    <Compile Include="Selection Forms\frmSelectProgramOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectProgramOption.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectProgramOption.Designer.cs">
       <DependentUpon>frmSelectProgramOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectQuality.cs">
+    <Compile Include="Selection Forms\frmSelectQuality.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectQuality.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectQuality.Designer.cs">
       <DependentUpon>frmSelectQuality.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSetting.cs">
+    <Compile Include="Selection Forms\frmSelectSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSetting.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSetting.Designer.cs">
       <DependentUpon>frmSelectSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSide.cs">
+    <Compile Include="Selection Forms\frmSelectSide.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSide.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSide.Designer.cs">
       <DependentUpon>frmSelectSide.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSkillCategory.cs">
+    <Compile Include="Selection Forms\frmSelectSkillCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSkillCategory.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSkillCategory.Designer.cs">
       <DependentUpon>frmSelectSkillCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSpellCategory.cs">
+    <Compile Include="Selection Forms\frmSelectSpellCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSpellCategory.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSpellCategory.Designer.cs">
       <DependentUpon>frmSelectSpellCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectVehicle.cs">
+    <Compile Include="Selection Forms\frmSelectVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectVehicle.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectVehicle.Designer.cs">
       <DependentUpon>frmSelectVehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectVehicleMod.cs">
+    <Compile Include="Selection Forms\frmSelectVehicleMod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectVehicleMod.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectVehicleMod.Designer.cs">
       <DependentUpon>frmSelectVehicleMod.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectWeapon.cs">
+    <Compile Include="Selection Forms\frmSelectWeapon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectWeapon.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectWeapon.Designer.cs">
       <DependentUpon>frmSelectWeapon.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSkillGroup.cs">
+    <Compile Include="Selection Forms\frmSelectSkillGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSkillGroup.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSkillGroup.Designer.cs">
       <DependentUpon>frmSelectSkillGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOptions.cs">
@@ -505,46 +699,46 @@
     <Compile Include="frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectArmor.cs">
+    <Compile Include="Selection Forms\frmSelectArmor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectArmor.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectArmor.Designer.cs">
       <DependentUpon>frmSelectArmor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Character Creation\frmSelectBP.cs">
+    <Compile Include="Character Creation\frmSelectBuildMethod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Character Creation\frmSelectBP.Designer.cs">
-      <DependentUpon>frmSelectBP.cs</DependentUpon>
+    <Compile Include="Character Creation\frmSelectBuildMethod.Designer.cs">
+      <DependentUpon>frmSelectBuildMethod.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectCyberware.cs">
+    <Compile Include="Selection Forms\frmSelectCyberware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectCyberware.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectCyberware.Designer.cs">
       <DependentUpon>frmSelectCyberware.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectPower.cs">
+    <Compile Include="Selection Forms\frmSelectPower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectPower.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectPower.Designer.cs">
       <DependentUpon>frmSelectPower.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectProgram.cs">
+    <Compile Include="Selection Forms\frmSelectProgram.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectProgram.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectProgram.Designer.cs">
       <DependentUpon>frmSelectProgram.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSpell.cs">
+    <Compile Include="Selection Forms\frmSelectSpell.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSpell.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSpell.Designer.cs">
       <DependentUpon>frmSelectSpell.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectText.cs">
+    <Compile Include="Selection Forms\frmSelectText.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectText.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectText.Designer.cs">
       <DependentUpon>frmSelectText.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -553,16 +747,16 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectWeaponAccessory.cs">
+    <Compile Include="Selection Forms\frmSelectWeaponAccessory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectWeaponAccessory.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectWeaponAccessory.Designer.cs">
       <DependentUpon>frmSelectWeaponAccessory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectWeaponCategory.cs">
+    <Compile Include="Selection Forms\frmSelectWeaponCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectWeaponCategory.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectWeaponCategory.Designer.cs">
       <DependentUpon>frmSelectWeaponCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSellItem.cs">
@@ -570,12 +764,6 @@
     </Compile>
     <Compile Include="frmSellItem.Designer.cs">
       <DependentUpon>frmSellItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Character Creation\frmSumtoTenMetatype.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Character Creation\frmSumtoTenMetatype.Designer.cs">
-      <DependentUpon>frmSumtoTenMetatype.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
@@ -595,10 +783,10 @@
     <Compile Include="frmViewer.Designer.cs">
       <DependentUpon>frmViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="InitiativeUserControl.cs">
+    <Compile Include="Controls\InitiativeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="InitiativeUserControl.Designer.cs">
+    <Compile Include="Controls\InitiativeUserControl.Designer.cs">
       <DependentUpon>InitiativeUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Omae\OmaeRecord.cs">
@@ -607,16 +795,16 @@
     <Compile Include="Omae\OmaeRecord.Designer.cs">
       <DependentUpon>OmaeRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="PetControl.cs">
+    <Compile Include="Controls\PetControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PetControl.Designer.cs">
+    <Compile Include="Controls\PetControl.Designer.cs">
       <DependentUpon>PetControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PowerControl.cs">
+    <Compile Include="UI\Powers\PowerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PowerControl.Designer.cs">
+    <Compile Include="UI\Powers\PowerControl.Designer.cs">
       <DependentUpon>PowerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Service References\OmaeService\Reference.cs">
@@ -630,12 +818,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SkillGroupControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SkillGroupControl.Designer.cs">
-      <DependentUpon>SkillGroupControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Character Creation\frmCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -648,52 +830,44 @@
     <Compile Include="Character Creation\frmKarmaMetatype.Designer.cs">
       <DependentUpon>frmKarmaMetatype.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectAttribute.cs">
+    <Compile Include="Selection Forms\frmSelectAttribute.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectAttribute.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectAttribute.Designer.cs">
       <DependentUpon>frmSelectAttribute.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectSkill.cs">
+    <Compile Include="Selection Forms\frmSelectSkill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectSkill.Designer.cs">
+    <Compile Include="Selection Forms\frmSelectSkill.Designer.cs">
       <DependentUpon>frmSelectSkill.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SkillControl.cs">
+    <Compile Include="Controls\SpiritControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SkillControl.Designer.cs">
-      <DependentUpon>SkillControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SmallSkillControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SmallSkillControl.Designer.cs">
-      <DependentUpon>SmallSkillControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SpiritControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SpiritControl.Designer.cs">
+    <Compile Include="Controls\SpiritControl.Designer.cs">
       <DependentUpon>SpiritControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SplitButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Character Creation\frmSumtoTenMetatype.resx">
-      <DependentUpon>frmSumtoTenMetatype.cs</DependentUpon>
+    <EmbeddedResource Include="Character Creation\frmSelectLifeModule.resx">
+      <DependentUpon>frmSelectLifeModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConditionMonitorUserControl.resx">
+    <EmbeddedResource Include="Controls\ConditionMonitorUserControl.resx">
       <DependentUpon>ConditionMonitorUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContactControl.resx">
+    <EmbeddedResource Include="Controls\ContactControl.resx">
       <DependentUpon>ContactControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DiceRollerControl.resx">
+    <EmbeddedResource Include="Controls\DiceRollerControl.resx">
       <DependentUpon>DiceRollerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCharacterRoster.resx">
+      <DependentUpon>frmCharacterRoster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddToken.resx">
       <DependentUpon>frmAddToken.cs</DependentUpon>
@@ -719,14 +893,47 @@
     <EmbeddedResource Include="frmCreateSpell.resx">
       <DependentUpon>frmCreateSpell.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateWeaponMount.resx">
+      <DependentUpon>frmCreateWeaponMount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGMDashboard.resx">
       <DependentUpon>frmGMDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectLifestyleAdvanced.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectOptionalPower.resx">
+      <DependentUpon>frmSelectOptionalPower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selection Forms\frmSelectLifestyleAdvanced.resx">
       <DependentUpon>frmSelectLifestyleAdvanced.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectLifestyleQuality.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectLifestyleQuality.resx">
       <DependentUpon>frmSelectLifestyleQuality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selection Forms\frmSelectAIProgram.resx">
+      <DependentUpon>frmSelectAIProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selection Forms\frmSelectSkillSpec.resx">
+      <DependentUpon>frmSelectSkillSpec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Attributes\AttributeControl.resx">
+      <DependentUpon>AttributeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Skills\KnowledgeSkillControl.resx">
+      <DependentUpon>KnowledgeSkillControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Skills\SkillControl2.resx">
+      <DependentUpon>SkillControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Skills\SkillGroupControl.resx">
+      <DependentUpon>SkillGroupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Shared\BindingListDisplay.resx">
+      <DependentUpon>BindingListDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Powers\PowersTabUserControl.resx">
+      <DependentUpon>PowersTabUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Skills\SkillsTabUserControl.resx">
+      <DependentUpon>SkillsTabUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities\frmDiceHits.resx">
       <DependentUpon>frmDiceHits.cs</DependentUpon>
@@ -793,128 +1000,128 @@
     <EmbeddedResource Include="frmReload.resx">
       <DependentUpon>frmReload.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectLifestyle.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectLifestyle.resx">
       <DependentUpon>frmSelectLifestyle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectArmorMod.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectArmorMod.resx">
       <DependentUpon>frmSelectArmorMod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectArt.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectArt.resx">
       <DependentUpon>frmSelectArt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectCalendarStart.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectCalendarStart.resx">
       <DependentUpon>frmSelectCalendarStart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectContactConnection.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectContactConnection.resx">
       <DependentUpon>frmSelectContactConnection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectCritterPower.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectCritterPower.resx">
       <DependentUpon>frmSelectCritterPower.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectCyberwareSuite.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectCyberwareSuite.resx">
       <DependentUpon>frmSelectCyberwareSuite.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectExoticSkill.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectExoticSkill.resx">
       <DependentUpon>frmSelectExoticSkill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectGear.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectGear.resx">
       <DependentUpon>frmSelectGear.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectItem.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectItem.resx">
       <DependentUpon>frmSelectItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectLimit.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectLimit.resx">
       <DependentUpon>frmSelectLimit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectLimitModifier.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectLimitModifier.resx">
       <DependentUpon>frmSelectLimitModifier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMartialArt.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectMartialArt.resx">
       <DependentUpon>frmSelectMartialArt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMartialArtAdvantage.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectMartialArtAdvantage.resx">
       <DependentUpon>frmSelectMartialArtAdvantage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMartialArtManeuver.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectMartialArtManeuver.resx">
       <DependentUpon>frmSelectMartialArtManeuver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMentorSpirit.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectMentorSpirit.resx">
       <DependentUpon>frmSelectMentorSpirit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMetamagic.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectMetamagic.resx">
       <DependentUpon>frmSelectMetamagic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectNexus.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectNexus.resx">
       <DependentUpon>frmSelectNexus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectNumber.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectNumber.resx">
       <DependentUpon>frmSelectNumber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectPACKSKit.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectPACKSKit.resx">
       <DependentUpon>frmSelectPACKSKit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectProgramOption.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectProgramOption.resx">
       <DependentUpon>frmSelectProgramOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectQuality.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectQuality.resx">
       <DependentUpon>frmSelectQuality.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSetting.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSetting.resx">
       <DependentUpon>frmSelectSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSide.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSide.resx">
       <DependentUpon>frmSelectSide.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSkillCategory.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSkillCategory.resx">
       <DependentUpon>frmSelectSkillCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSpellCategory.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSpellCategory.resx">
       <DependentUpon>frmSelectSpellCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectVehicle.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectVehicle.resx">
       <DependentUpon>frmSelectVehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectVehicleMod.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectVehicleMod.resx">
       <DependentUpon>frmSelectVehicleMod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectWeapon.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectWeapon.resx">
       <DependentUpon>frmSelectWeapon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSkillGroup.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSkillGroup.resx">
       <DependentUpon>frmSelectSkillGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectArmor.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectArmor.resx">
       <DependentUpon>frmSelectArmor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Character Creation\frmSelectBP.resx">
-      <DependentUpon>frmSelectBP.cs</DependentUpon>
+    <EmbeddedResource Include="Character Creation\frmSelectBuildMethod.resx">
+      <DependentUpon>frmSelectBuildMethod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectCyberware.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectCyberware.resx">
       <DependentUpon>frmSelectCyberware.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectPower.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectPower.resx">
       <DependentUpon>frmSelectPower.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectProgram.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectProgram.resx">
       <DependentUpon>frmSelectProgram.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSpell.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSpell.resx">
       <DependentUpon>frmSelectSpell.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectText.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectText.resx">
       <DependentUpon>frmSelectText.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectWeaponAccessory.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectWeaponAccessory.resx">
       <DependentUpon>frmSelectWeaponAccessory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectWeaponCategory.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectWeaponCategory.resx">
       <DependentUpon>frmSelectWeaponCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSellItem.resx">
@@ -929,20 +1136,17 @@
     <EmbeddedResource Include="frmViewer.resx">
       <DependentUpon>frmViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitiativeUserControl.resx">
+    <EmbeddedResource Include="Controls\InitiativeUserControl.resx">
       <DependentUpon>InitiativeUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Omae\OmaeRecord.resx">
       <DependentUpon>OmaeRecord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PetControl.resx">
+    <EmbeddedResource Include="Controls\PetControl.resx">
       <DependentUpon>PetControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PowerControl.resx">
+    <EmbeddedResource Include="UI\Powers\PowerControl.resx">
       <DependentUpon>PowerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SkillGroupControl.resx">
-      <DependentUpon>SkillGroupControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Character Creation\frmCreate.resx">
       <DependentUpon>frmCreate.cs</DependentUpon>
@@ -951,10 +1155,10 @@
     <EmbeddedResource Include="Character Creation\frmKarmaMetatype.resx">
       <DependentUpon>frmKarmaMetatype.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectAttribute.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectAttribute.resx">
       <DependentUpon>frmSelectAttribute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectSkill.resx">
+    <EmbeddedResource Include="Selection Forms\frmSelectSkill.resx">
       <DependentUpon>frmSelectSkill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -967,195 +1171,158 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SkillControl.resx">
-      <DependentUpon>SkillControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SmallSkillControl.resx">
-      <DependentUpon>SmallSkillControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SpiritControl.resx">
+    <EmbeddedResource Include="Controls\SpiritControl.resx">
       <DependentUpon>SpiritControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Chummer_TemporaryKey.pfx" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
-    <None Include="ClassDiagram4.cd" />
-    <None Include="ClassDiagram5.cd" />
-    <None Include="data\armor.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Compile Include="Backend\Attributes\Attribute.Core.cs" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="data\armor.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Chummer_TemporaryKey.pfx" />
+    <None Include="data\armor.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\bioware.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\bioware.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\bonuses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data\books.xsc">
+      <DependentUpon>books.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\books.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\books.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\books.xss">
+      <DependentUpon>books.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\character.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="data\complexforms.xsd" />
     <None Include="data\critterpowers.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\critterpowers.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\critters.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\critters.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\cyberware.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\cyberware.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\echoes.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\echoes.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\gear.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\gear.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\improvements.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\lifestyles.xsc">
+      <DependentUpon>lifestyles.xsd</DependentUpon>
     </None>
     <None Include="data\lifestyles.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\lifestyles.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\lifestyles.xss">
+      <DependentUpon>lifestyles.xsd</DependentUpon>
     </None>
     <None Include="data\martialarts.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\martialarts.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\mentors.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\mentors.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\metamagic.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\metamagic.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\metatypes.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\metatypes.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\packs.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\packs.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\paragons.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\paragons.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\powers.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\powers.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\programs.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="data\programs.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\qualities.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\qualities.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\ranges.xsc">
+      <DependentUpon>ranges.xsd</DependentUpon>
     </None>
     <None Include="data\ranges.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\ranges.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\conditions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data\ranges.xss">
+      <DependentUpon>ranges.xsd</DependentUpon>
+    </None>
+    <None Include="data\skills.xsc">
+      <DependentUpon>skills.xsd</DependentUpon>
     </None>
     <None Include="data\skills.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\skills.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\skills.xss">
+      <DependentUpon>skills.xsd</DependentUpon>
     </None>
     <None Include="data\spells.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\spells.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\streams.xsc">
+      <DependentUpon>streams.xsd</DependentUpon>
     </None>
     <None Include="data\streams.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\streams.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\streams.xss">
+      <DependentUpon>streams.xsd</DependentUpon>
+    </None>
+    <None Include="data\traditions.xsc">
+      <DependentUpon>traditions.xsd</DependentUpon>
     </None>
     <None Include="data\traditions.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\traditions.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\traditions.xss">
+      <DependentUpon>traditions.xsd</DependentUpon>
+    </None>
+    <None Include="data\vehicles.xsc">
+      <DependentUpon>vehicles.xsd</DependentUpon>
     </None>
     <None Include="data\vehicles.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\vehicles.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\vehicles.xss">
+      <DependentUpon>vehicles.xsd</DependentUpon>
     </None>
     <None Include="data\vessels.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\vessels.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\weapons.xsc">
+      <DependentUpon>weapons.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="data\weapons.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="data\weapons.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="data\weapons.xss">
+      <DependentUpon>weapons.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="lang\de.xml.bak">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="lang\fr.xml.bak">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="lang\jp.xml.bak">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Documentation\Lifemodule.md" />
     <None Include="lang\language.xsc">
       <DependentUpon>language.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1169,6 +1336,12 @@
     <None Include="lang\language.xss">
       <DependentUpon>language.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="nuget.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
@@ -1415,107 +1588,132 @@
     <Content Include="changelog.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Collapse.png" />
+    <Content Include="Custom Content\custom_radarsensorfunction_gear.xml" />
+    <Content Include="Custom Content\override_cyberlimbheadware_cyberware.xml" />
+    <Content Include="data\options.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\Contributors.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Contributors.cs</LastGenOutput>
+    </Content>
     <Content Include="data\armor.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="data\bioware.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\books.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\complexforms.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\contacts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\critterpowers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\critters.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="data\cyberware.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\echoes.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\gameplayoptions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\gear.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\improvements.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\licenses.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\lifemodules.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\lifestyles.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\martialarts.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\mentors.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\metamagic.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\metatypes.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\packs.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="data\paragons.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\powers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="data\priorities.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\programs.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\qualities.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="data\ranges.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\skills.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="data\spells.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\spiritpowers.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\streams.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\SumtoTen.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\traditions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\vehicles.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\vessels.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\weapons.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
+    <EmbeddedResource Include="Expand.png" />
     <Content Include="export\Squad Manager.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1531,9 +1729,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="lang\en-us2.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="lang\fr.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -1548,49 +1743,225 @@
     <Content Include="lang\jp_data.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Collapse.png" />
+    <None Include="Resources\Expand.png" />
+    <Content Include="sheets\Calendar set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Calendar.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Commlinks set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="sheets\Commlinks.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\ConditionMonitor.xslt">
+    <Content Include="sheets\Contacts set.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Commlinks.xsl">
+    <Content Include="sheets\Contacts.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\ConditionMonitor.xslt">
+    <Content Include="sheets\de\Dossier.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Game Master Summary.xsl">
+    <Content Include="sheets\de\Fahrzeuge.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Shadowrun 5 %28Grouped Skills by Name%29.xsl">
+    <Content Include="sheets\de\Formatieren Nur Text.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Shadowrun 5 %28Grouped Skills by Rating%29.xsl">
+    <Content Include="sheets\de\Kalender.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Shadowrun 5 Base.xslt">
+    <Content Include="sheets\de\Kommlinks.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Kontakte.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Kosten.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Notizen.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Nur Text.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Schick Blöcke.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Shadowrun 5 %28Bewertet größer 0%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Shadowrun 5 %28Gruppiert Fähigkeit durch Bewertet%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Shadowrun 5 %28Gruppiert Fähigkeit durch Name%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Shadowrun 5 %28Kern%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\de\Shadowrun 5 includes.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="sheets\de\Shadowrun 5.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Text-Only.xsl">
+    <Content Include="sheets\de\Spielleiter Überblick.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\de\Vehicle Block.xsl">
+    <Content Include="sheets\de\xz.de.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Dossier set.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="sheets\Dossier.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="sheets\Expenses set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Expenses.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Fancy Blocks set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Fancy Blocks.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Formatted Text-Only set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="sheets\Formatted Text-Only.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\fr\Text-Only.xsl">
+    <Content Include="sheets\fr\Blocs fantaisie.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Calendrier.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Commlinks.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Contacts.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Dossier.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Dépenses.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Formaté texte seulement.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Remarques.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5 %28Coeur%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5 %28Groupé par nom%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5 %28Groupé par évaluation%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5 %28Évaluation plus grand que zéro%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5 includes.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Shadowrun 5.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Spielleiter Überblick.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Texte seulement.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\Véhicules.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\fr\xz.fr.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Game Master Summary set.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="sheets\Game Master Summary.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Calendar.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Commlinks.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Contacts.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Dossier.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Expenses.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Fancy Blocks.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Formatted Text-Only.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Game Master Summary.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Notes.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5 %28Core%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5 %28Grouped Skills by Name%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5 %28Grouped Skills by Rating%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5 %28Rating greater 0%29.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5 includes.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Shadowrun 5.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Text-Only.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\Vehicles.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\jp\xz.jp.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Notes set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Notes.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Shadowrun 5 %28Core%29.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="sheets\Shadowrun 5 %28Grouped Skills by Name%29.xsl">
@@ -1599,27 +1970,111 @@
     <Content Include="sheets\Shadowrun 5 %28Grouped Skills by Rating%29.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\Shadowrun 5 Base.xslt">
+    <Content Include="sheets\Shadowrun 5 includes.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Shadowrun 5 set.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="sheets\Shadowrun 5.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="sheets\Text-Only set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="sheets\Text-Only.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sheets\Vehicle Block.xsl">
+    <Content Include="sheets\Shadowrun 5 %28Rating greater 0%29.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Translator.exe">
+    <Content Include="sheets\Vehicles set.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\Vehicles.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xs.fnx.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xs.SkillsGroupedAssorted.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xs.SkillsGroupedByName.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xs.SkillsGroupedByRating.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xs.TitleName.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Calendar.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.ConditionMonitor.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Contacts.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Expenses.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Lifestyles.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.MovementRate.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.MugShot.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Notes.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.PreserveLineBreaks.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Qualities.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.RangedWeapons.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.RowSummary.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.RuleLine.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Skills.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.Spells.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xt.TableTitle.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sheets\xz.en-us.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="settings\" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <PropertyGroup>
+    <PostBuildEvent Condition=" '$(OS)' != 'Unix' ">copy "$(SolutionDir)LICENSE.txt" "$(TargetDir)LICENSE.txt"
+</PostBuildEvent>
+    <PostBuildEvent Condition=" '$(OS)' == 'Unix' ">cp "$(SolutionDir)LICENSE.txt" "$(TargetDir)LICENSE.txt"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -1,3 +1,21 @@
+/*  This file is part of Chummer5a.
+ *
+ *  Chummer5a is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Chummer5a is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Chummer5a.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  You can obtain the full source code for Chummer5a at
+ *  https://github.com/chummer5a/chummer5a
+ */
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,8 +30,8 @@ namespace Chummer
 		private readonly OmaeHelper _objOmaeHelper = new OmaeHelper();
 
 		// Error message constants.
-		private readonly string NO_CONNECTION_MESSAGE = "";
-		private readonly string NO_CONNECTION_TITLE = "";
+		private readonly string NO_CONNECTION_MESSAGE = string.Empty;
+		private readonly string NO_CONNECTION_TITLE = string.Empty;
 
 		private string _strUserName;
 		private int _intSheetID = 0;
@@ -52,7 +70,7 @@ namespace Chummer
 			}
 
 			// Clear the file path field.
-			txtFilePath.Text = "";
+			txtFilePath.Text = string.Empty;
 			_lstFiles.Clear();
 
 			// Make sure valid files were selected.
@@ -72,28 +90,28 @@ namespace Chummer
 				_lstFiles.Add(strFileArray[i]);
 				txtFilePath.Text += strFileArray[i] + ", ";
 			}
-			if (txtFilePath.Text != string.Empty)
+			if (!string.IsNullOrEmpty(txtFilePath.Text))
 				txtFilePath.Text = txtFilePath.Text.Substring(0, txtFilePath.Text.Length - 2);
 		}
 
 		private void cmdUpload_Click(object sender, EventArgs e)
 		{
 			// Make sure a name has been entered.
-			if (txtName.Text == "")
+			if (string.IsNullOrEmpty(txtName.Text))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_OmaeUpload_SheetName"), LanguageManager.Instance.GetString("MessageTitle_OmaeUpload_SheetName"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
 			// Make sure there is at least some sort of description.
-			if (txtDescription.Text.Trim() == "")
+			if (string.IsNullOrEmpty(txtDescription.Text.Trim()))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_OameUpload_SheetDescription"), LanguageManager.Instance.GetString("MessageTitle_OmaeUpload_SheetDescription"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
 			// Make sure at least 1 file was selected.
-			if (txtFilePath.Text == string.Empty)
+			if (string.IsNullOrEmpty(txtFilePath.Text))
 			{
 				MessageBox.Show(LanguageManager.Instance.GetString("Message_OmaeUpload_SheetSelectFiles"), LanguageManager.Instance.GetString("MessageTitle_OmaeUpload_SelectFile"), MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
@@ -138,7 +156,7 @@ namespace Chummer
 			txtName.Enabled = true;
 
 			if (blnSuccess)
-				this.DialogResult = DialogResult.OK;
+				DialogResult = DialogResult.OK;
 		}
 		#endregion
 
@@ -149,9 +167,9 @@ namespace Chummer
 			intWidth = Math.Max(intWidth, lblFilePathLabel.Width);
 
 			txtName.Left = lblNameLabel.Left + intWidth + 6;
-			txtName.Width = this.Width - txtName.Left - 16;
+			txtName.Width = Width - txtName.Left - 16;
 			txtDescription.Left = lblDescriptionLabel.Left + intWidth + 6;
-			txtDescription.Width = this.Width - txtDescription.Left - 16;
+			txtDescription.Width = Width - txtDescription.Left - 16;
 		}
 		#endregion
 	}
